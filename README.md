@@ -7,4 +7,5 @@
 ![image](https://github.com/HoangNguyen161201/hoang-zihelp/assets/84957563/2377caad-acc8-4b4e-94b3-42dad7524342)
 - sau đó mở terminal, run cli: **yarn** hoặc **npx yarn** để install libraries
 - sau đó chạy dự án: **yarn run dev** hoặc **npx yarn run dev**
+
 ![image](https://github.com/HoangNguyen161201/hoang-zihelp/assets/84957563/1694d890-264d-4124-890d-b37552d6bb18)
