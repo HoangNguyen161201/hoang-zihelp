@@ -15,7 +15,7 @@ class UserController {
             data = await userService.findById(id as string)
         }
         return new BaseResponse({
-            message: 'Get user successfully',
+            message: 'Get resource successfully',
             data
         })
     }
@@ -60,6 +60,18 @@ class UserController {
         const data = await userService.search(name as string)
         return new BaseResponse({
             message: 'Search users successfully',
+            data
+        })
+    }
+
+    async locate(req: Request) {
+        const { n, userId } = req.query
+        const data = await userService.locate({
+            userId: String(userId),
+            n: parseInt(n as string) ? parseInt(n as string) : undefined
+        })
+        return new BaseResponse({
+            message: 'Get resource successfully',
             data
         })
     }

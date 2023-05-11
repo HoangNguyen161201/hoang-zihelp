@@ -9,5 +9,6 @@ userRouter.post('/add', catchAsyncError(UserController.create))
 userRouter.put('/edit/:id', catchAsyncError(UserController.update))
 userRouter.delete('/edit/:id', catchAsyncError(UserController.delete))
 userRouter.get('/search', catchAsyncError(UserController.search))
+userRouter.get('/locate', catchAsyncError(UserController.locate))
 
 export default userRouter

@@ -1,11 +1,13 @@
+import * as geolib from 'geolib';
+import { FindManyOptions, Not } from "typeorm";
 import { ErrorInfo } from "../common/middlewares/handleError.middleware";
 import { CreateUserDto } from "./dto/create-user.dto";
 import { UpdateUserDto } from "./dto/update-user.dto";
 import { User } from "./entities/user.entity";
 
 class UserService {
-    findAll() {
-        return User.find({})
+    findAll(options?: FindManyOptions<User>) {
+        return User.find(options)
     }
 
     async findById(id: string) {
@@ -57,6 +59,40 @@ class UserService {
         return data;
     }
 
+    async locate({ userId, n = 3 }: { userId: string, n?: number }) {
+        const currentUser = await this.findById(userId)
+
+        // get lat and long by split coordinate
+        const [latCurrentUser, longCurrentUser] = currentUser.coordinate.split(':')
+
+        // find other users
+        const users = await this.findAll({
+            where: {
+                id: Not(userId)
+            }
+        })
+
+        const data = users.map(user => {
+            const [lat, lon] = user.coordinate.split(':')
+            const distance = geolib.getDistance({
+                lat,
+                lon
+            }, {
+                lat: latCurrentUser,
+                lon: longCurrentUser
+            })
+            return {
+                ...user,
+                distance
+            }
+        })
+
+        data.sort((userA, userB) => {
+            return userA.distance - userB.distance
+        })
+
+        return data.slice(0, n)
+    }
 }
 
 export default new UserService

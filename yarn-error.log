@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\NgQuangHoang\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add class-validater
+  C:\Program Files\nodejs\node.exe C:\Users\NgQuangHoang\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add typeorm-geo-point
 
 PATH: 
   C:\Users\NgQuangHoang\AppData\Roaming\npm;C:\Users\NgQuangHoang\Desktop\code\testZiHelp\node_modules\.bin;C:\Users\NgQuangHoang\Desktop\code\node_modules\.bin;C:\Users\NgQuangHoang\Desktop\node_modules\.bin;C:\Users\NgQuangHoang\node_modules\.bin;C:\Users\node_modules\.bin;C:\node_modules\.bin;C:\Program Files\nodejs\node_modules\npm\node_modules\@npmcli\run-script\lib\node-gyp-bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Git\cmd;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\nodejs\;C:\Users\NgQuangHoang\.console-ninja\.bin;C:\Users\NgQuangHoang\AppData\Local\Microsoft\WindowsApps;;C:\Users\NgQuangHoang\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\NgQuangHoang\AppData\Roaming\npm
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/class-validater: Not found
+  Error: https://registry.yarnpkg.com/typeorm-geo-point: Not found
       at params.callback [as _callback] (C:\Users\NgQuangHoang\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66145:18)
       at self.callback (C:\Users\NgQuangHoang\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140890:22)
       at Request.emit (node:events:513:28)
@@ -43,7 +43,10 @@ npm manifest:
     "license": "ISC",
     "dependencies": {
       "body-parser": "^1.20.2",
+      "class-transformer": "^0.5.1",
+      "class-validator": "^0.14.0",
       "express": "^4.18.2",
+      "geolib": "^3.3.3",
       "pg": "^8.10.0",
       "typedi": "^0.10.0",
       "typeorm": "^0.3.16",
@@ -159,6 +162,11 @@ Lockfile:
     version "9.0.1"
     resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-9.0.1.tgz#98586dc36aee8dacc98cc396dbca8d0429647aa6"
     integrity sha512-rFT3ak0/2trgvp4yYZo5iKFEPsET7vKydKF+VRCxlQ9bpheehyAJH89dAkaLEq/j/RZXJIqcgsmPJKUP1Z28HA==
+  
+  "@types/validator@^13.7.10":
+    version "13.7.17"
+    resolved "https://registry.yarnpkg.com/@types/validator/-/validator-13.7.17.tgz#0a6d1510395065171e3378a4afc587a3aefa7cc1"
+    integrity sha512-aqayTNmeWrZcvnG2MG9eGYI6b7S5fl+yKgPs6bAjOTwPS316R5SxBGKvtSExfyoJU7pIeHJfsHI0Ji41RVMkvQ==
   
   abbrev@1:
     version "1.1.1"
@@ -329,6 +337,20 @@ Lockfile:
       readdirp "~3.6.0"
     optionalDependencies:
       fsevents "~2.3.2"
+  
+  class-transformer@^0.5.1:
+    version "0.5.1"
+    resolved "https://registry.yarnpkg.com/class-transformer/-/class-transformer-0.5.1.tgz#24147d5dffd2a6cea930a3250a677addf96ab336"
+    integrity sha512-SQa1Ws6hUbfC98vKGxZH3KFY0Y1lm5Zm0SY8XX9zbK7FJCyVEac3ATW0RIpwzW+oOfmHE5PMPufDG9hCfoEOMw==
+  
+  class-validator@^0.14.0:
+    version "0.14.0"
+    resolved "https://registry.yarnpkg.com/class-validator/-/class-validator-0.14.0.tgz#40ed0ecf3c83b2a8a6a320f4edb607be0f0df159"
+    integrity sha512-ct3ltplN8I9fOwUd8GrP8UQixwff129BkEtuWDKL5W45cQuLd19xqmTLu5ge78YDm/fdje6FMt0hGOhl0lii3A==
+    dependencies:
+      "@types/validator" "^13.7.10"
+      libphonenumber-js "^1.10.14"
+      validator "^13.7.0"
   
   cli-highlight@^2.1.11:
     version "2.1.11"
@@ -554,6 +576,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
     integrity sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==
   
+  geolib@^3.3.3:
+    version "3.3.3"
+    resolved "https://registry.yarnpkg.com/geolib/-/geolib-3.3.3.tgz#17f5a0dcdc0b051bd631b66f7131d2c14c54a15b"
+    integrity sha512-YO704pzdB/8QQekQuDmFD5uv5RAwAf4rOUPdcMhdEOz+HoPWD0sC7Qqdwb+LAvwIjXVRawx0QgZlocKYh8PFOQ==
+  
   get-caller-file@^2.0.5:
     version "2.0.5"
     resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-2.0.5.tgz#4f94412a82db32f36e3b0b9741f8a97feb031f7e"
@@ -687,6 +714,11 @@ Lockfile:
     version "7.0.0"
     resolved "https://registry.yarnpkg.com/is-number/-/is-number-7.0.0.tgz#7535345b896734d5f80c4d06c50955527a14f12b"
     integrity sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==
+  
+  libphonenumber-js@^1.10.14:
+    version "1.10.30"
+    resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.10.30.tgz#c0559d6c58dc1a7f189b88b7b23354c98b182848"
+    integrity sha512-PLGc+xfrQrkya/YK2/5X+bPpxRmyJBHM+xxz9krUdSgk4Vs2ZwxX5/Ow0lv3r9PDlDtNWb4u+it8MY5rZ0IyGw==
   
   media-typer@0.3.0:
     version "0.3.0"
@@ -1211,6 +1243,11 @@ Lockfile:
     version "9.0.0"
     resolved "https://registry.yarnpkg.com/uuid/-/uuid-9.0.0.tgz#592f550650024a38ceb0c562f2f6aa435761efb5"
     integrity sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==
+  
+  validator@^13.7.0:
+    version "13.9.0"
+    resolved "https://registry.yarnpkg.com/validator/-/validator-13.9.0.tgz#33e7b85b604f3bbce9bb1a05d5c3e22e1c2ff855"
+    integrity sha512-B+dGG8U3fdtM0/aNK4/X8CXq/EcxU2WPrPEkJGslb47qyHsxmbggTWK0yEA4qnYVNF+nxNlN88o14hIcPmSIEA==
   
   vary@~1.1.2:
     version "1.1.2"
