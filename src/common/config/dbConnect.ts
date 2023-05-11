@@ -12,7 +12,7 @@ const AppDataSource = new DataSource({
     url: process.env.POSTGRES_URL,
     entities: [User],
     synchronize: true,
-    logging: true,
+    logging: false,
 })
 
 export default AppDataSource

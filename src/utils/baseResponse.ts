@@ -1,16 +1,19 @@
 interface IBaseResponse {
-    status: number,
-    message: string,
     data: any
+    error: string
+    message: string
+    success: boolean
 }
 
 export class BaseResponse {
-    status = 200
-    message = ''
+    success = true
     data = null
-    constructor({ status = 200, message = '', data }: Partial<IBaseResponse>) {
-        this.status = status
-        this.message = message
+    error
+    message
+    constructor({ success = true, data, error, message }: Partial<IBaseResponse>) {
         this.data = data
+        this.success = success
+        this.error = error
+        this.message = message
     }
 }

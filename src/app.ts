@@ -27,7 +27,7 @@ const runApp = async () => {
 
     // listen with port
     app.listen(PORT, () => {
-        console.log(`App listening on port ${PORT}`)
+        console.log(`✌ App listening on port ${PORT} ✌`)
     })
 }
 
