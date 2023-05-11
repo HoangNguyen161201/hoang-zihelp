@@ -67,7 +67,7 @@ class UserController {
     async locate(req: Request) {
         const { n, userId } = req.query
         const data = await userService.locate({
-            userId: String(userId),
+            userId: userId as string,
             n: parseInt(n as string) ? parseInt(n as string) : undefined
         })
         return new BaseResponse({

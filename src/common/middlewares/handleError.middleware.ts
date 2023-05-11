@@ -8,12 +8,19 @@ export type ErrorInfo = {
 
 const handleError = (app: Express) => {
     app.use('*', ({ message, statusCode = 500, code }: ErrorInfo, _: Request, res: Response, next: NextFunction) => {
-
+        if (code == '22P02') {
+            message = 'Resource not found'
+            statusCode = 404
+        } else {
+            try {
+                message = JSON.parse(message)
+            } catch (err) { }
+        }
         const response = new BaseResponse({
-            error: code == '22P02' ? 'Resource not found' : JSON.parse(message),
+            error: message,
             success: false
         })
-        return res.status(code == '22P02' ? 404 : statusCode).json(response)
+        return res.status(statusCode).json(response)
     })
 }
 

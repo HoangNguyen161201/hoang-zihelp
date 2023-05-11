@@ -11,8 +11,10 @@ class UserService {
     }
 
     async findById(id: string) {
-        const data = await User.findOneBy({
-            id
+        const data = await User.findOne({
+            where: {
+                id
+            }
         })
         if (!data) {
             const error = (new Error(`Resource not found`) as ErrorInfo)
@@ -60,7 +62,9 @@ class UserService {
     }
 
     async locate({ userId, n = 3 }: { userId: string, n?: number }) {
+        console.log(userId)
         const currentUser = await this.findById(userId)
+        console.log(currentUser)
 
         // get lat and long by split coordinate
         const [latCurrentUser, longCurrentUser] = currentUser.coordinate.split(':')
